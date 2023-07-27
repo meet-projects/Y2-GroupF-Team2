@@ -24,16 +24,16 @@ db = firebase.database()
 @app.route("/" ,methods=['GET', 'POST'])
 def choice():
     if request.method =="GET":
-        return render_template("")
+        return render_template("index.html")
     else: 
         if request.form['answer'] == "employer":
             return render_template('')
         else:
-            return render_template("")
+            return render_template("index.html")
     
 
 
 #Code goes above here
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000, host="0.0.0.0")
