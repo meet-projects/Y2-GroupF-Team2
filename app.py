@@ -27,9 +27,9 @@ def choice():
         return render_template("choice.html")
     else: 
         if request.form['answer'] == "employer":
-            return render_template('company_login.html')
+            return redirect(url_for("employer_login"))
         else:
-            return render_template("alum_login.html")
+            return redirect(url_for("alum_login"))
         
 
 
@@ -60,9 +60,10 @@ def alum_signup():
     if request.method =="GET":
         return render_template("alum_signup.html")
     else: 
-        # code goes here
-        return render_template("employer_home.html")
-
+        try:
+            return redirect(url_for("alum_home"))
+        except:
+            return redirect(url_for("alum_signup"))
 
 @app.route("/alum_home" ,methods=['GET', 'POST'])#alum home page route
 def alum_home():
@@ -117,4 +118,4 @@ def employer_home():
 #Code goes above here
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host="0.0.0.0")
+    app.run(debug=True)
