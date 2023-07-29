@@ -9,9 +9,12 @@
 <body>
 
 <h1>alumni login </h1>
- <h1> are you an employer or an alumni</h1>
-<a href="/sign_in"> <button class="login">email</button> </a>
-<a href="/sign_in"> <button class="login">password</button> </a>
-    
+<form action="/alum_login" method="post">
+    <input class="login" type="email" placeholder="email" required="@" name="email">
+    <input class="login" type="password" placeholder="password" minlength="6" name="password">
+<input type="submit">
+</form>
+<a href="/alum_signup"><button>signup</button></a>
+
 </body>
 </html>

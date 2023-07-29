@@ -21,9 +21,11 @@ auth = firebase.auth()
 db = firebase.database()
 #Code goes below here
 
+
 @app.route("/" ,methods=['GET', 'POST'])#choice between company and alum route
 def choice():
     if request.method =="GET":
+        login_session['user'] = "None"
         return render_template("choice.html")
     else: 
         if request.form['answer'] == "employer":
@@ -42,25 +44,36 @@ def choice():
 @app.route("/alum_login" ,methods=['GET', 'POST'])#alum login page route
 def alum_login():
     if request.method =="GET":
+        login_session['user'] = "None"
         return render_template("alum_login.html")
     else: 
+        email = request.form['email']
+        password = request.form['password']
         try:
-            # login code goes here
+            login_session['user'] = auth.sign_in_with_email_and_password(email,password)
             print("succses")
-            return render_template("employer_login.html")
+            return render_template("alum_home.html")
         except:
             #login fail code goes here
             print("fail")
-            return render_template("employer_login.html")
+            return render_template("alum_login.html")
         
 
 
 @app.route("/alum_signup" ,methods=['GET', 'POST'])#alum signup page route
 def alum_signup():
     if request.method =="GET":
+        login_session['user'] = "None"
         return render_template("alum_signup.html")
-    else: 
+    else:
+        email = request.form['email']
+        password = request.form['password']
+        name = request.form['name']
         try:
+            login_session['user'] = auth.create_user_with_email_and_password(email,password)
+            UID = login_session['user']['localId']
+            user = {"email": email, "name":name}
+            db.child("Alums").child(UID).set(user)
             return redirect(url_for("alum_home"))
         except:
             return redirect(url_for("alum_signup"))
@@ -92,18 +105,36 @@ def alum_profile():
 @app.route("/employer_login" ,methods=['GET', 'POST'])#employer login page route
 def employer_login():
     if request.method =="GET":
+        login_session['user'] = "None"
         return render_template("employer_login.html")
     else: 
-        # code goes here
-        return render_template("employer_home.html")
+        email = request.form['email']
+        password = request.form['password']
+        try:
+            login_session['user'] = auth.sign_in_with_email_and_password(email,password)
+            print("success")
+            return render_template("employer_home.html")
+        except:
+            return render_template("employer_login.html")
     
 @app.route("/employer_signup" ,methods=['GET', 'POST'])#employer signup page route
 def employer_signup():
     if request.method =="GET":
+        login_session['user'] = "None"
         return render_template("employer_signup.html")
     else: 
-        # code goes here
-        return render_template("employer_home.html")
+        email = request.form['email']
+        password = request.form['password']
+        name  = request.form['name']
+        try:
+            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            UID = login_session['user']['localId']
+            company = {"email":email, "name":name}
+            db.child("Companies").child(UID).set(company)
+            return render_template("employer_home.html")
+        except:
+            return render_template("employer_signup.html")
+            
     
 
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
