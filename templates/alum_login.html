@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a_signup</title>
+    <title>a_login</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-<h1>alumni sign up </h1>
 
-<form action="/alum_signup" method="post">
+<h1>alumni login </h1>
+<form action="/alum_login" method="post">
     <input class="login" type="email" placeholder="email" required="@" name="email">
     <input class="login" type="password" placeholder="password" minlength="6" name="password">
-    <input class="login" type="text" placeholder="name" name="name">
-    <input type="submit">
+<input type="submit">
 </form>
-    <a href="/alum_login"><button>login</button></a>
+<a href="/alum_signup"><button>signup</button></a>
+
 </body>
 </html>
