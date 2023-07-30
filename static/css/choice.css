@@ -21,3 +21,26 @@ height: 80px;
 background: rgb(0, 0, 102);
 
 }
+
+#txt {
+    color :  #ff00ff;
+
+}
+
+#sign {
+    background-color: #4d94ff;
+    color: white;
+    width: 300px;
+    height: 60px;
+    border: none;
+    border-radius: 50px;
+}
+
+#sign1 {
+    background-color: #00004d;
+    color: white;
+    width: 300px;
+    height: 60px;
+    border: none;
+    border-radius: 50px;
+}
