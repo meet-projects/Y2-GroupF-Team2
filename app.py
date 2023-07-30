@@ -111,7 +111,7 @@ def alum_profile():
 
         cv_file = request.files['CV']
         UID = login_session['user']['localId']
-        upload_cv(cv_file,UID, name)
+        upload_cv(cv_file,UID, user["name"])
 
         return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
 
@@ -119,7 +119,6 @@ def alum_profile():
 
 
 def upload_cv(cv_file, UID, name):
-    name = "oded"
     path = f"cv_uploads/{UID}/{name}_cv.docx"
 
     storage.child(path).put(cv_file)

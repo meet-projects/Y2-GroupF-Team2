@@ -22,9 +22,11 @@
 
 <h2>Here Are Your Applications And Their Satuts</h2>
 <ul>
+{%if applications != None%}    
 {%for appli in applications%}
 <li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
 {%endfor%}
+{%endif%}
 </ul>
 </body>
 </html>
