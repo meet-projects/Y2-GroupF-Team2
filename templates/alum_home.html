@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    
+    <ul>
+    {%for company in company_list%}
+        <li>{{company_list[company]["name"]}}</li>
+    {%endfor%}
 </body>
 </html>

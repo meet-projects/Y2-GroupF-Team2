@@ -31,7 +31,7 @@ def choice():
         if request.form['answer'] == "employer":
             return redirect(url_for("employer_login"))
         else:
-            return redirect(url_for("alum_login"))
+            return redirect(url_for("alum_home"))
         
 
 
@@ -81,7 +81,10 @@ def alum_signup():
 @app.route("/alum_home" ,methods=['GET', 'POST'])#alum home page route
 def alum_home():
     if request.method =="GET":
-        return render_template("alum_home.html")
+        company_list = db.child("Companies").get().val()
+
+
+        return render_template("alum_home.html", company_list = company_list)
     else: 
         # code goes here
         return render_template("employer_home.html")
