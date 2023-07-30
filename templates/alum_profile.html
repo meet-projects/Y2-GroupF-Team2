@@ -10,9 +10,9 @@
 
     <p>{{user["name"]}}</p>
     <p>degree: {{user["degree"]}}</p>
-    <form action="/alum_profile" method="post">
-    type your CV here<input type="text" name="CV" height="2000" width="100px">
-    <!-- Or Upload A File Here <input type="file" name="CV-File"> -->
+    <form action="/alum_profile" method="post" enctype="multipart/form-data">
+    <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
+    Or Upload A File Here <input type="file" name="CV">
     <input type="submit">
 </form>
 

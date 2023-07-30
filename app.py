@@ -105,15 +105,26 @@ def alum_profile():
         CV = db.child("Users").child(login_session['user']['localId']).child("CV").get().val()
         degree = db.child("Users").child(login_session['user']['localId']).child("degree").get().val()
         name = db.child("Users").child(login_session['user']['localId']).child("name").get().val()
-        db.child("Alums").child(login_session['user']["localId"]).child("CV").set(request.form['CV'])
+        # db.child("Alums").child(login_session['user']["localId"]).child("CV").set(request.form['CV'])
         user = db.child("Alums").child(login_session['user']["localId"]).get().val()
         applications = db.child("Alums").child(login_session['user']["localId"]).child("Applications").get().val()
+
+        cv_file = request.files['CV']
+        UID = login_session['user']['localId']
+        upload_cv(cv_file,UID, name)
 
         return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
 
 
 
-# --------------------
+
+def upload_cv(cv_file, UID, name):
+    name = "oded"
+    path = f"cv_uploads/{UID}/{name}_cv.docx"
+
+    storage.child(path).put(cv_file)
+
+    # --------------------
 # company routes starts here
 # -------------------
 
