@@ -98,16 +98,18 @@ def alum_profile():
         degree = db.child("Users").child(login_session['user']['localId']).child("degree").get().val()
         name = db.child("Users").child(login_session['user']['localId']).child("name").get().val()
         user = db.child("Alums").child(login_session['user']["localId"]).get().val()
-
+        applications = db.child("Alums").child(login_session['user']["localId"]).child("Applications").get().val()
         print(user["name"])
-        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user)
+        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
     else: 
         CV = db.child("Users").child(login_session['user']['localId']).child("CV").get().val()
         degree = db.child("Users").child(login_session['user']['localId']).child("degree").get().val()
         name = db.child("Users").child(login_session['user']['localId']).child("name").get().val()
         db.child("Alums").child(login_session['user']["localId"]).child("CV").set(request.form['CV'])
         user = db.child("Alums").child(login_session['user']["localId"]).get().val()
-        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user)
+        applications = db.child("Alums").child(login_session['user']["localId"]).child("Applications").get().val()
+
+        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
 
 
 

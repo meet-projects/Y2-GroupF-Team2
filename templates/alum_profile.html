@@ -22,8 +22,8 @@
 
 <h2>Here Are Your Applications And Their Satuts</h2>
 <ul>
-{%for appli in user["Applications"]%}
-<li>{{Applicationappli]}} {{appli["Role"]}} : {{appli["Status"]}}</li>
+{%for appli in applications%}
+<li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
 {%endfor%}
 </ul>
 </body>
