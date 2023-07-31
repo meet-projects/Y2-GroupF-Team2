@@ -140,38 +140,55 @@ def employer_login():
         companies = db.child("Companies").get().val()
         flag = False
         for company in companies :
-            print(companies[company])
+            print(companies[company]["email_comp"])
+            if email == companies[company]["email_comp"]:
+                flag = True
+                break
+
         try:
-            
-            login_session['user'] = auth.sign_in_with_email_and_password(email,password)
-            print("success")
-            return redirect(url_for("employer_home"))
+            if(flag == True):
+                login_session['user'] = auth.sign_in_with_email_and_password(email,password)
+                print("success")
+                return redirect(url_for("employer_home"))
+            else:
+                flash("login error")
+                return render_template("employer_login.html")
         except:
             return render_template("employer_login.html")
-    
-@app.route("/employer_signup" ,methods=['GET', 'POST'])#employer signup page route
-def employer_signup():
-    if request.method =="GET":
-        login_session['user'] = "None"
-        return render_template("employer_signup.html")
-    else: 
-        email = request.form['email']
-        password = request.form['password']
-        name  = request.form['name']
-        try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            UID = login_session['user']['localId']
-            company = {"email":email, "name":name}
-            db.child("Companies").child(UID).set(company)
-            return render_template("employer_home.html")
-        except:
-            return render_template("employer_signup.html")
+
+
+
+
+
+# @app.route("/employer_signup" ,methods=['GET', 'POST'])#employer signup page route
+# def employer_signup():
+#     if request.method =="GET":
+#         login_session['user'] = "None"
+#         return render_template("employer_signup.html")
+#     else: 
+#         email = request.form['email']
+#         password = request.form['password']
+#         name  = request.form['name']
+#         try:
+#             login_session['user'] = auth.create_user_with_email_and_password(email, password)
+#             UID = login_session['user']['localId']
+#             company = {"email":email, "name":name}
+#             db.child("Companies").child(UID).set(company)
+#             return render_template("employer_home.html")
+#         except:
+#             return render_template("employer_signup.html")
             
     
 
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
 def employer_home():
     if request.method =="GET":
+        role = request.form['role']
+        amount = request.form['amount']
+        UID = login_session['user']['localId']
+        comp_name = db.child('Companies').child(UID).child("comp_name").get().val()
+        updated = {role: amount}
+        db.child("Applications").child(UID).child("Roles").update(updated)
         return render_template("employer_home.html")
     else: 
         # code goes here
