@@ -58,7 +58,7 @@ height: 80px;
   outline: none;
   height: 60px;
   width: 300px;
-  
+
 }
 
 #login1 {
@@ -73,13 +73,39 @@ height: 80px;
   outline: none;
   height: 30px;
   width: 100px;
-  
+  background-color: #ff00ff;
 }
 
 #text {
   color : #00004d;
-
 }
+
+#tet {
+  color : #00004d;
+}
+
+#lol {
+  border-radius: 50px;
+  outline: none;
+  height: 60px;
+  width: 300px;
+}
+
+#lo {
+  border-radius: 50px;
+  outline: none;
+  height: 60px;
+  width: 300px;
+}
+
+#submit1 {
+  border-radius: 50px;
+  outline: none;
+  height: 30px;
+  width: 100px;
+  background-color: #ff00ff;
+}
+
 
 
 /*css of search bar*/
