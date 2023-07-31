@@ -6,11 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<center>
-    <body>
-        <header>
-          <img src="static/imgs/header.png" style=width="80" height="80">
-        </header>
+<body>
+<header>
+<img src="static/imgs/header.png" style=width="80" height="80">
+</header>
 
         <p id = "name">{{user["name"]}}</p>
         <p id = "degree">degree: {{user["degree"]}}</p>
@@ -26,9 +25,9 @@
             <input type="submit" id = "submit2" >
         </form>
 
-        {%if user["CV"] != None %}
-        <p > {{user["CV"]}}</p>
-        {%endif%}
+{%if user["CV"] != None %}
+<p > {{user["CV"]}}</p>
+{%endif%}
 
         <h2 id = "yes" >Here Are Your Applications And Their Satuts</h2>
         <ul>
@@ -39,9 +38,8 @@
         {%endif%}
         </ul>
 
-        <footer>
-            <img src="static/imgs/footer.png" style=width="80" height="450">
-        </footer>
-    </body>
-</center>
+<footer>
+   <img src="static/imgs/footer.png" style=width="80" height="450">
+</footer>
+</body>
 </html>

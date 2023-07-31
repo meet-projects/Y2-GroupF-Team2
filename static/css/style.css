@@ -2,10 +2,11 @@
 * {box-sizing: border-box;}
 
 body{
- background-color:white;
+ background-color:#e6e6e6;
+ color:#ff00ff;
 }
 
-header{background-color:#ffffff;
+header{background-color:white;
 }
 
 footer {
@@ -147,6 +148,6 @@ height: 80px;
 .sign{ height:150px ; width:200px; background-color: #ff00ff; color:#ff3399; 
 }
 
-body{background-color:white;}
+
 
 
