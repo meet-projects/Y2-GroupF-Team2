@@ -17,6 +17,13 @@
     </form>
 
 
+    <ul>
+        {%if apps != None%}
+        {%for app in apps%}
+        <li>{{app}}</li>
+        {%endfor%}
+        {%endif%}
+    </ul>
 
 
 <footer> 

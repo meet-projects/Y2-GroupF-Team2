@@ -124,6 +124,21 @@ def upload_cv(cv_file, UID, name):
 
     storage.child(path).put(cv_file)
 
+
+
+
+
+@app.route("/alum_apply", methods=["POST","GET"])
+def alum_apply():
+
+    if request.method =="GET":
+        return render_template("alum_apply.html")
+    else:
+        name = db.child("Alums").child(login_session['user']['localId']).child("name").get().val()
+        company_list = request.form['box']
+        # for company in company_list:
+        cv = storage.child(f"cv_uploads/{login_session['user']['localId']}/{name}.docx").get_url(None)
+        db.child("Companies").child("4Yu8BQHY18M8Vy0CCGiYavdNG6H2").child("CV").push(cv)
     # --------------------
 # company routes starts here
 # -------------------
@@ -176,6 +191,10 @@ def employer_login():
             
     
 
+
+
+    
+
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
 def employer_home():
     if request.method =="GET":
@@ -183,11 +202,7 @@ def employer_home():
         return render_template("employer_home.html")
     else: 
         # code goes here
-        role = request.form['role']
-        amount = request.form['amount']
-        UID = login_session['user']['localId']
-        updated = {role: amount}
-        db.child("Companies").child(UID).child("Roles").update(updated)
+        
         apps = db.child("Companies").child(UID).child("Roles").get().val()
         return render_template("employer_home.html", apps=apps)
 
