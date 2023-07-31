@@ -83,10 +83,9 @@ def alum_signup():
 @app.route("/alum_home" ,methods=['GET', 'POST'])#alum home page route
 def alum_home():
     if request.method =="GET":
-        company_list = db.child("Companies").get().val()
 
 
-        return render_template("alum_home.html", company_list = company_list)
+        return render_template("alum_home.html")
     else: 
         # code goes here
         return render_template("employer_home.html")
@@ -137,22 +136,17 @@ def employer_login():
     else: 
         email = request.form['email']
         password = request.form['password']
-        companies = db.child("Companies").get().val()
-        flag = False
-        for company in companies :
-            print(companies[company]["email_comp"])
-            if email == companies[company]["email_comp"]:
-                flag = True
-                break
+        
 
         try:
-            if(flag == True):
-                login_session['user'] = auth.sign_in_with_email_and_password(email,password)
-                print("success")
-                return redirect(url_for("employer_home"))
-            else:
-                flash("login error")
-                return render_template("employer_login.html")
+            
+            login_session['user'] = auth.sign_in_with_email_and_password(email,password)
+            UID = login_session['user']['localId']
+            if db.child("Companies").child(UID).get().val() == None:
+                db.child("Companies").child(UID).child("Roles").set("placeholder")
+            return redirect(url_for("employer_home"))
+
+
         except:
             return render_template("employer_login.html")
 
@@ -183,16 +177,17 @@ def employer_login():
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
 def employer_home():
     if request.method =="GET":
-        role = request.form['role']
-        amount = request.form['amount']
-        UID = login_session['user']['localId']
-        comp_name = db.child('Companies').child(UID).child("comp_name").get().val()
-        updated = {role: amount}
-        db.child("Applications").child(UID).child("Roles").update(updated)
+        
         return render_template("employer_home.html")
     else: 
         # code goes here
-        return render_template("employer_home.html")
+        role = request.form['role']
+        amount = request.form['amount']
+        UID = login_session['user']['localId']
+        updated = {role: amount}
+        db.child("Companies").child(UID).child("Roles").update(updated)
+        apps = db.child("Companies").child(UID).child("Roles").get().val()
+        return render_template("employer_home.html", apps=apps)
 
 
 #Code goes above here
