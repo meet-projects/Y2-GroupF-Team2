@@ -135,10 +135,12 @@ def alum_apply():
         return render_template("alum_apply.html")
     else:
         name = db.child("Alums").child(login_session['user']['localId']).child("name").get().val()
-        company_list = request.form['box']
+        # company_list = request.form['box']
         # for company in company_list:
-        cv = storage.child(f"cv_uploads/{login_session['user']['localId']}/{name}.docx").get_url(None)
+        cv = storage.child("cv_uploads/mDgVKMW23CTR1KO9aS6ihnwbCkx1/Yasmin Atari_cv.docx").get_url(None)
+        print(cv)
         db.child("Companies").child("4Yu8BQHY18M8Vy0CCGiYavdNG6H2").child("CV").push(cv)
+        return render_template("alum_apply.html")
     # --------------------
 # company routes starts here
 # -------------------
