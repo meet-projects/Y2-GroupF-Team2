@@ -132,11 +132,13 @@ def upload_cv(cv_file, UID, name):
 def alum_apply():
 
     if request.method =="GET":
-        return render_template("alum_apply.html")
+        companies = db.child("Companies").get().val()
+        return render_template("alum_apply.html" ,companies=companies)
     else:
         name = db.child("Alums").child(login_session['user']['localId']).child("name").get().val()
         UID = login_session["user"]['localId']
         company_list = request.form.getlist('box')
+        print(company_list)
         for company in company_list:
             cv = storage.child(f"cv_uploads/{UID}/{name}_cv.docx").get_url(None)
             print(cv)

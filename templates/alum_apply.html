@@ -8,8 +8,9 @@
 <body>
     <form action="/alum_apply" method="post">
 
-        <input type="checkbox" name="box" value="spL5lVigS1PCmo7QSANzdMPeDpI2" placeholder="At Bay"><p>At Bay</p>
-        <input type="checkbox" name="box" value="GNTYLNZh4ERTP2q5J1FQu7S1WiI2" placeholder="Google"><p>Google</p>
+        {%for company in companies%}
+        <input type="checkbox" name="box" value={{company}} placeholder={{company['email']}}><p>{{companies[company]['Email']}}</p>
+        {%endfor%}
         <input type ='submit'>
 
 
