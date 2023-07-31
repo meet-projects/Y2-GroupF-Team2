@@ -1,6 +1,27 @@
 /*css of search bar*/
 * {box-sizing: border-box;}
 
+body{
+ background-color:#e6e6e6;
+ color:#ff00ff;
+}
+
+header{background-color:#ffffff;
+}
+footer {
+position: absolute;
+
+bottom:0;
+
+padding-top: 10px;
+
+text-align: center;
+
+width: 100%;
+
+height: 80px;
+
+}
 
 .topnav .search-container {
   float: right;
