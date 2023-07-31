@@ -6,34 +6,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-<header>
-<img src="static/imgs/header.png" style=width="80" height="80">
-</header>
+<center>
+    <body>
+        <header>
+          <img src="static/imgs/header.png" style=width="80" height="80">
+        </header>
 
-    <p>{{user["name"]}}</p>
-    <p>degree: {{user["degree"]}}</p>
-    <form action="/alum_profile" method="post" enctype="multipart/form-data">
-    <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
-    Or Upload A File Here <input type="file" name="CV">
-    <input type="submit">
-</form>
+        <p id = "name">{{user["name"]}}</p>
+        <p id = "degree">degree: {{user["degree"]}}</p>
+        <form action="/alum_profile" method="post" enctype="multipart/form-data">
+            <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
+            <p id = "words" >Or Upload A File Here</p> <input type="file" name="CV" id = "cv" >
+            <input type="submit" id = "submit2" >
+        </form>
 
-{%if user["CV"] != None %}
-<p > {{user["CV"]}}</p>
-{%endif%}
+        {%if user["CV"] != None %}
+        <p > {{user["CV"]}}</p>
+        {%endif%}
 
-<h2>Here Are Your Applications And Their Satuts</h2>
-<ul>
-{%if applications != None%}    
-{%for appli in applications%}
-<li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
-{%endfor%}
-{%endif%}
-</ul>
+        <h2>Here Are Your Applications And Their Satuts</h2>
+        <ul>
+        {%if applications != None%}    
+        {%for appli in applications%}
+        <li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
+        {%endfor%}
+        {%endif%}
+        </ul>
 
-<footer>
-   <img src="static/imgs/footer.png" style=width="80" height="450">
-</footer>
-</body>
+        <footer>
+            <img src="static/imgs/footer.png" style=width="80" height="450">
+        </footer>
+    </body>
+</center>
 </html>
