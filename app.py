@@ -137,10 +137,15 @@ def employer_login():
     else: 
         email = request.form['email']
         password = request.form['password']
+        companies = db.child("Companies").get().val()
+        flag = False
+        for company in companies :
+            print(companies[company])
         try:
+            
             login_session['user'] = auth.sign_in_with_email_and_password(email,password)
             print("success")
-            return render_template("employer_home.html")
+            return redirect(url_for("employer_home"))
         except:
             return render_template("employer_login.html")
     
