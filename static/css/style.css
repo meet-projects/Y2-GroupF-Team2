@@ -44,8 +44,6 @@ height: 80px;
   background: #ccc;
 }
 
-
-  }
 .search-container button {
     float: none;
     display: block;
@@ -54,8 +52,22 @@ height: 80px;
     margin: 0;
     padding: 14px;
   }
-  
+
+#login-input {
+  border-radius: 50px;
+  outline: none;
+  height: 60px;
+  width: 300px;
 }
+
+#login1 {
+  border-radius: 50px;
+  outline: none;
+  height: 60px;
+  width: 300px;
+}
+
+
 /*css of search bar*/
 
 .sign{ height:150px ; width:200px; background-color: #ff00ff; color:#ff3399; 
