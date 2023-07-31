@@ -1,41 +1,4 @@
 body{
-
- background-image: url("data:image/jpeg;base64,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");
- background-repeat: no-repeat;
- background-size: cover;
-}
-/* Set the width and height of the container to match the image */
-.image-container {
-  width: 400px; /* Adjust to the actual width of your image */
-  height: 400px; /* Adjust to the actual height of your image */
-  position: relative;
-}
-
-/* Hide the actual image inside the container */
-.image {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* Show the second image on hover */
-.image-container:hover .image {
-  opacity: 0;
-}
-
-/* Set the second image as the background on hover */
-.image-container:hover::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-image: url("/static/image2.png");
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-
  background-color:#e6e6e6;
  color:#ff00ff;
 }
@@ -80,5 +43,4 @@ background: rgb(0, 0, 102);
     height: 60px;
     border: none;
     border-radius: 50px;
-
 }
