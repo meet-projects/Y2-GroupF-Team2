@@ -18,7 +18,7 @@
             <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
             <p id = "words" >Upload A File Here:-</p> 
             <!-- <input type="file" name="CV" id = "cv" > -->
-            <label for="file-upload" id="cv" style="color: white;">
+            <label for="file-upload" id="cv" style="color: black;">
             Custom Upload
             </label>
             <br>
@@ -31,7 +31,7 @@
 <p > {{user["CV"]}}</p>
 {%endif%}
 
-        <h2 id = "yes" >Here Are Your Applications And Their Satuts</h2>
+        <h2 id = "yes" >Here Are Your Applications And Their Status</h2>
         <ul>
         {%if applications != None%}    
         {%for appli in applications%}
