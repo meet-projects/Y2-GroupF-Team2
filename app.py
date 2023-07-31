@@ -53,6 +53,8 @@ def alum_login():
         password = request.form['password']
         try:
             login_session['user'] = auth.sign_in_with_email_and_password(email,password)
+            if db.child("Alums").child(login_session['user']['localId']).get().val() == None:
+                db.child("Alums").child(login_session['user']['localId']).child("placeholder").set("placeholder")
             print("succses")
             return redirect(url_for("alum_profile"))
         except:
