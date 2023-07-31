@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd451c38-1ee7-4476-a083-43ff23399b3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/imgs/footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/choice.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/choice.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/nokialogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/alum_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/alum_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/alum_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/alum_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/alum_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/alum_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/choice.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/choice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/employer_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/employer_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/employer_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/employer_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wireframe.excalidraw" beforeDir="false" afterPath="$PROJECT_DIR$/wireframe.excalidraw" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,21 +29,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": -1
+  "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="2T9O2BwKMSG1qhS6grDqj1Ok4Bz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/student/Documents/GitHub/Y2-GroupF-Team2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "last_opened_file_path": "/home/student/Documents/GitHub/Y2-GroupF-Team2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
