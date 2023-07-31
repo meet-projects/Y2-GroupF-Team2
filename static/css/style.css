@@ -106,6 +106,40 @@ height: 80px;
   background-color: #ff00ff;
 }
 
+#submit2 {
+  border-radius: 50px;
+  outline: none;
+  height: 30px;
+  width: 100px;
+  background-color: #ff00ff;
+}
+
+#name {
+  color : #00004d;
+  font-size: 45px;
+}
+
+#degree {
+  color : #00004d;
+  font-size: 30px;
+}
+
+#words {
+  color : #00004d;
+  font-size: 30px;
+}
+
+#cv {
+  border-radius: 50px;
+  outline: none;
+  height: 50px;
+  width: 100px;
+  background-color: #ff00ff;
+}
+
+#yes {
+  color : #00004d;
+}
 
 
 /*css of search bar*/

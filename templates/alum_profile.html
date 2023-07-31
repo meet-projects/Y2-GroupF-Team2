@@ -16,7 +16,13 @@
         <p id = "degree">degree: {{user["degree"]}}</p>
         <form action="/alum_profile" method="post" enctype="multipart/form-data">
             <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
-            <p id = "words" >Or Upload A File Here</p> <input type="file" name="CV" id = "cv" >
+            <p id = "words" >Upload A File Here:-</p> 
+            <!-- <input type="file" name="CV" id = "cv" > -->
+            <label for="file-upload" id="cv">
+            Custom Upload
+            </label>
+            <input id="file-upload" type="file" style="visibility: hidden;"/>
+            <br>
             <input type="submit" id = "submit2" >
         </form>
 
@@ -24,7 +30,7 @@
         <p > {{user["CV"]}}</p>
         {%endif%}
 
-        <h2>Here Are Your Applications And Their Satuts</h2>
+        <h2 id = "yes" >Here Are Your Applications And Their Satuts</h2>
         <ul>
         {%if applications != None%}    
         {%for appli in applications%}
