@@ -2,10 +2,11 @@
 * {box-sizing: border-box;}
 
 body{
- background-color:white;
+ background-color:#e6e6e6;
+ color:#ff00ff;
 }
 
-header{background-color:#ffffff;
+header{background-color:white;
 }
 
 footer {
@@ -106,6 +107,40 @@ height: 80px;
   background-color: #ff00ff;
 }
 
+#submit2 {
+  border-radius: 50px;
+  outline: none;
+  height: 30px;
+  width: 100px;
+  background-color: #ff00ff;
+}
+
+#name {
+  color : #00004d;
+  font-size: 45px;
+}
+
+#degree {
+  color : #00004d;
+  font-size: 30px;
+}
+
+#words {
+  color : #00004d;
+  font-size: 30px;
+}
+
+#cv {
+  border-radius: 50px;
+  outline: none;
+  height: 50px;
+  width: 100px;
+  background-color: #ff00ff;
+}
+
+#yes {
+  color : #00004d;
+}
 
 
 /*css of search bar*/
@@ -113,6 +148,6 @@ height: 80px;
 .sign{ height:150px ; width:200px; background-color: #ff00ff; color:#ff3399; 
 }
 
-body{background-color:white;}
+
 
 
