@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+        .logo{
+            width:200px;
+            height: 200px;
+        }
+
+
+    </style>
 </head>
 <body>
     <ul>
     {%for company in company_list%}
-        <li>{{company_list[company]["name"]}}</li>
+        <li><h3>{{company_list[company]["comp_name"]}}</h3><a href={{company_list[company]["link"]}}><img class="logo" src={{company_list[company]["photo"]}}></a><p>{{company_list[company]["sum"]}}</p></li>
     {%endfor%}
+        </ul>
+<footer> 
+<img src="static/imgs/footer.png" >  
+</footer>
 </body>
 </html>

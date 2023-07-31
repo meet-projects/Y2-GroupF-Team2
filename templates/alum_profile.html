@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    
+
+    <p>{{user["name"]}}</p>
+    <p>degree: {{user["degree"]}}</p>
+    <form action="/alum_profile" method="post" enctype="multipart/form-data">
+    <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
+    Or Upload A File Here <input type="file" name="CV">
+    <input type="submit">
+</form>
+
+{%if user["CV"] != None %}
+<p > {{user["CV"]}}</p>
+{%endif%}
+
+<h2>Here Are Your Applications And Their Satuts</h2>
+<ul>
+{%if applications != None%}    
+{%for appli in applications%}
+<li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
+{%endfor%}
+{%endif%}
+</ul>
 </body>
 </html>

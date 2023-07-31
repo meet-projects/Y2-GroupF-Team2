@@ -19,19 +19,21 @@ config = {
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
+storage = firebase.storage()
 #Code goes below here
 
 
 @app.route("/" ,methods=['GET', 'POST'])#choice between company and alum route
 def choice():
     if request.method =="GET":
+
         login_session['user'] = "None"
         return render_template("choice.html")
     else: 
         if request.form['answer'] == "employer":
             return redirect(url_for("employer_login"))
         else:
-            return redirect(url_for("alum_home"))
+            return redirect(url_for("alum_login"))
         
 
 
@@ -52,7 +54,7 @@ def alum_login():
         try:
             login_session['user'] = auth.sign_in_with_email_and_password(email,password)
             print("succses")
-            return render_template("alum_home.html")
+            return redirect(url_for("alum_profile"))
         except:
             #login fail code goes here
             print("fail")
@@ -92,14 +94,36 @@ def alum_home():
 @app.route("/alum_profile" ,methods=['GET', 'POST'])#alum profile page route
 def alum_profile():
     if request.method =="GET":
-        return render_template("alum_profile.html")
+        CV = db.child("Users").child(login_session['user']['localId']).child("CV").get().val()
+        degree = db.child("Users").child(login_session['user']['localId']).child("degree").get().val()
+        name = db.child("Users").child(login_session['user']['localId']).child("name").get().val()
+        user = db.child("Alums").child(login_session['user']["localId"]).get().val()
+        applications = db.child("Alums").child(login_session['user']["localId"]).child("Applications").get().val()
+        print(user["name"])
+        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
     else: 
-        # code goes here
-        return render_template("employer_home.html")
+        CV = db.child("Users").child(login_session['user']['localId']).child("CV").get().val()
+        degree = db.child("Users").child(login_session['user']['localId']).child("degree").get().val()
+        name = db.child("Users").child(login_session['user']['localId']).child("name").get().val()
+        # db.child("Alums").child(login_session['user']["localId"]).child("CV").set(request.form['CV'])
+        user = db.child("Alums").child(login_session['user']["localId"]).get().val()
+        applications = db.child("Alums").child(login_session['user']["localId"]).child("Applications").get().val()
+
+        cv_file = request.files['CV']
+        UID = login_session['user']['localId']
+        upload_cv(cv_file,UID, user["name"])
+
+        return render_template("alum_profile.html", CV=CV, degree=degree,name=name, user=user, applications=applications)
 
 
 
-# --------------------
+
+def upload_cv(cv_file, UID, name):
+    path = f"cv_uploads/{UID}/{name}_cv.docx"
+
+    storage.child(path).put(cv_file)
+
+    # --------------------
 # company routes starts here
 # -------------------
 
