@@ -56,7 +56,7 @@ def alum_login():
             if db.child("Alums").child(login_session['user']['localId']).get().val() == None:
                 db.child("Alums").child(login_session['user']['localId']).child("placeholder").set("placeholder")
             print("succses")
-            return redirect(url_for("alum_profile"))
+            return redirect(url_for("alum_home"))
         except:
             #login fail code goes here
             print("fail")
@@ -135,11 +135,12 @@ def alum_apply():
         return render_template("alum_apply.html")
     else:
         name = db.child("Alums").child(login_session['user']['localId']).child("name").get().val()
-        # company_list = request.form['box']
-        # for company in company_list:
-        cv = storage.child("cv_uploads/mDgVKMW23CTR1KO9aS6ihnwbCkx1/Yasmin Atari_cv.docx").get_url(None)
-        print(cv)
-        db.child("Companies").child("4Yu8BQHY18M8Vy0CCGiYavdNG6H2").child("CV").push(cv)
+        UID = login_session["user"]['localId']
+        company_list = request.form.getlist('box')
+        for company in company_list:
+            cv = storage.child(f"cv_uploads/{UID}/{name}_cv.docx").get_url(None)
+            print(cv)
+            db.child("Companies").child(company).child("CV").push(cv)
         return render_template("alum_apply.html")
     # --------------------
 # company routes starts here
@@ -200,13 +201,12 @@ def employer_login():
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
 def employer_home():
     if request.method =="GET":
-        
+        print(login_session['user']['localId'])
         return render_template("employer_home.html")
     else: 
         # code goes here
         
-        apps = db.child("Companies").child(UID).child("Roles").get().val()
-        return render_template("employer_home.html", apps=apps)
+        return render_template("employer_home.html")
 
 
 #Code goes above here
