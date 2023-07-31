@@ -58,6 +58,7 @@ height: 80px;
   outline: none;
   height: 60px;
   width: 300px;
+  
 }
 
 #login1 {
@@ -65,6 +66,19 @@ height: 80px;
   outline: none;
   height: 60px;
   width: 300px;
+}
+
+#submit {
+  border-radius: 50px;
+  outline: none;
+  height: 30px;
+  width: 100px;
+  
+}
+
+#text {
+  color : #00004d;
+
 }
 
 
