@@ -141,9 +141,9 @@ def alum_apply():
         print(company_list)
         for company in company_list:
             cv = storage.child(f"cv_uploads/{UID}/{name}_cv.docx").get_url(None)
-            print(cv)
+            # print(cv)
             db.child("Companies").child(company).child("CV").push(cv)
-        return render_template("alum_apply.html")
+        return redirect(url_for("alum_home"))
     # --------------------
 # company routes starts here
 # -------------------
