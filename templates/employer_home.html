@@ -11,23 +11,18 @@
 <img src="static/imgs/header.png" style=width="80" height="80">
 </header>    
 <br> 
-<br> <br><br><br> <br><br> <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
+<!-- <br> <br><br><br> <br><br> <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br> -->
 
 <center>
-    <form action="/employer_home" method="post">
-        <input type="text" name="role" placeholder="Role" >
-        <input type="number" name="amount" placeholder="Amount">
-        <input type="submit">
+
 </center>
     </form>
 
 
     <ul>
-        {%if apps != None%}
-        {%for app in apps%}
-        <li>{{app}}</li>
+        {%for app in applicant_list%}
+        <li><a href="{{applicant_list[app]}}">{{applicant_list[app]}}</a></li>
         {%endfor%}
-        {%endif%}
     </ul>
 
 

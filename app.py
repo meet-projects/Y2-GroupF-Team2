@@ -203,8 +203,10 @@ def employer_login():
 @app.route("/employer_home" ,methods=['GET', 'POST'])#employer login page route
 def employer_home():
     if request.method =="GET":
-        print(login_session['user']['localId'])
-        return render_template("employer_home.html")
+        UID = login_session['user']['localId']
+        print(UID)
+        applicant_list = db.child("Companies").child(UID).child("CV").get().val()
+        return render_template("employer_home.html", applicant_list=applicant_list)
     else: 
         # code goes here
         
