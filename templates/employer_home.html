@@ -19,13 +19,15 @@
     </form>
 
 
-    <ul>
-        {%if applicant_list != None%}
-        {%for app in applicant_list%}
-        <li><a href="{{applicant_list[app]}}">{{app}}</a></li>
-        {%endfor%}
-        {%endif%}
-    </ul>
+  <ul class="button-list">
+    {% if applicant_list != None %}
+      {% for app in applicant_list %}
+        <li>
+          <a class="custom-button" href="{{ applicant_list[app] }}">{{ app }}</a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
 
 
 <footer> 
