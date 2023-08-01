@@ -20,9 +20,11 @@
 
 
     <ul>
+        {%if applicant_list != None%}
         {%for app in applicant_list%}
         <li><a href="{{applicant_list[app]}}">{{applicant_list[app]}}</a></li>
         {%endfor%}
+        {%endif%}
     </ul>
 
 
