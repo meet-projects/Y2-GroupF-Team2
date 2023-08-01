@@ -133,7 +133,7 @@ def alum_apply():
 
     if request.method =="GET":
         companies = db.child("Companies").get().val()
-        return render_template("alum_apply.html" ,companies=companies)
+        return render_template("alum_apply.html", companies=companies, company_count = len(companies))
     else:
         name = db.child("Alums").child(login_session['user']['localId']).child("name").get().val()
         UID = login_session["user"]['localId']
