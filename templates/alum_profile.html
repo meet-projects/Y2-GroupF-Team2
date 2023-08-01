@@ -13,41 +13,42 @@
 </header>
 </center>
 <div>
-    <a href="/alum_home"><button>alum home</bualum_profiletton></a>
+    <a href="/alum_home"><button id = "alhome"  >alum home</button></a>
 </div>
 
+        <center>
 
-        <p id = "name">{{user["name"]}}</p>
-        <p id = "degree">degree: {{user["degree"]}}</p>
-        <form action="/alum_profile" method="post" enctype="multipart/form-data">
-            <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
-            <p id = "words" >Upload A File Here:-</p> 
-            <!-- <input type="file" name="CV" id = "cv" > -->
-            <label for="file-upload" id="cv" style="color: black;">
-            Custom Upload
-            </label>
-            <br>
-            <input id="file-upload" type="file" style="visibility: hidden;"/>
-            <br>
-            <input type="submit" id = "submit2" >
-        </form>
+            <p id = "name">{{user["name"]}}</p>
+            <p id = "degree">degree: {{user["degree"]}}</p>
+            <form action="/alum_profile" method="post" enctype="multipart/form-data">
+                <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
+                <p id = "words" >Upload A File Here:-</p> 
+                <!-- <input type="file" name="CV" id = "cv" > -->
+                <label for="file-upload" id="cv" style="color: black;">
+                    Custom Upload
+                </label>
+                <br>
+                <input id="file-upload" type="file" style="visibility: hidden;"/>
+                <br>
+                <input type="submit" id = "submit2" >
+            </form>
 
-{%if user["CV"] != None %}
-<p > {{user["CV"]}}</p>
-{%endif%}
+    {%if user["CV"] != None %}
+        <p > {{user["CV"]}}</p>
+    {%endif%}
 
-        <h2 id = "yes" >Here Are Your Applications And Their Status</h2>
-        <ul>
-        {%if applications != None%}    
-        {%for appli in applications%}
-        <li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
-        {%endfor%}
-        {%endif%}
-        </ul>
+            <h2 id = "yes" >Here Are Your Applications And Their Status</h2>
+            <ul>
+            {%if applications != None%}    
+            {%for appli in applications%}
+            <li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
+            {%endfor%}
+            {%endif%}
+             </ul>
 
-<footer>
-   <img src="static/imgs/footer.png" style=width="80" height="450">
-</footer>
+    <footer>
+        <img src="static/imgs/footer.png" style=width="80" height="450">
+    </footer>
 </center>
 </body>
 </html>

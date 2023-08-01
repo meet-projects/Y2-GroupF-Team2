@@ -159,6 +159,15 @@ height: 80px;
   color: white;
 }
 
+#alhome {
+  border-radius: 50px;
+  outline: none;
+  height: 70px;
+  width: 70px;
+  background-color: #4d94ff;
+  color: white;
+}
+
 
 /*css of search bar*/
 
