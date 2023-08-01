@@ -16,14 +16,13 @@
         <a class="topbar" href="https://place-il.org/about/">About Us</a>
         <a class="topbar" href="https://place-il.org/contact-us/">Join Us</a>
         </center>
-
+</header>
+<center>
 
     <p id = "name" >{{user["name"]}}</p>
     <p id = "degree" >degree: {{user["degree"]}}</p>
 
-      
-    <p>{{user["name"]}}</p>
-    <p>degree: {{user["degree"]}}</p>
+
     <form action="/alum_profile" method="post" enctype="multipart/form-data">
     <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
      <p id = "words" >Upload A File Here:- </p> 
@@ -32,11 +31,7 @@
     <input type="submit" id = "submit2" >
 </form>
 
-    {%if user["CV"] != None %}
-    <p > {{user["CV"]}}</p>
-    {%endif%}
-
-<h2>Here Are Your Applications And Their Satuts</h2>
+<h2 id = "yes">Here Are Your Applications And Their Satuts</h2>
 <ul>
 {%if applications != None%}    
 {%for appli in applications%}
@@ -44,6 +39,7 @@
 {%endfor%}
 {%endif%}
 </ul>
+</center>
 
 <footer>
    <img src="static/imgs/footer.png" style=width="80" height="450">
