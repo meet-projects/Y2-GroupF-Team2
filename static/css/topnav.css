@@ -1,0 +1,34 @@
+a.topbar{
+    color: inherit;  
+    text-decoration: none;
+    font-size: 20px;
+    margin: 20px;
+    position: relative;
+    left: -120px;
+}
+
+a.topbar:hover{
+   color:rgb(255 0 255);
+
+}
+img.topbar {
+        width: 225px;
+        height: 45px;
+        /* Add this style to stick the image to the left side */
+        position: absolute;
+        left: 0;
+        margin-left: 20px; /* Optional: Add some left margin for better spacing */
+    }
+    nav {
+        background-image: url("../imgs/logo.png");
+        background-size: auto 45px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 250px; /* Adjust the value to control the spacing between the image and links */
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* Set the width to 100% to span the entire width of the container */
+        text-align: center;
+    }
