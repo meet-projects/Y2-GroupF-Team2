@@ -31,4 +31,7 @@ img.topbar {
         justify-content: center;
         width: 100%; /* Set the width to 100% to span the entire width of the container */
         text-align: center;
+        border-top: 0.5px solid lightgray;
+        border-bottom: 0.5px solid lightgray;
+        
     }
