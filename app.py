@@ -140,9 +140,10 @@ def alum_apply():
         company_list = request.form.getlist('box')
         print(company_list)
         for company in company_list:
-            cv = storage.child(f"cv_uploads/{UID}/{name}_cv.docx").get_url(None)
+            link = storage.child(f"cv_uploads/{UID}/{name}_cv.docx").get_url(None)
             # print(cv)
-            db.child("Companies").child(company).child("CV").push(cv)
+            cv = {name:link}
+            db.child("Companies").child(company).child("CV").set(cv)
         return redirect(url_for("alum_home"))
     # --------------------
 # company routes starts here
@@ -206,6 +207,7 @@ def employer_home():
         UID = login_session['user']['localId']
         print(UID)
         applicant_list = db.child("Companies").child(UID).child("CV").get().val()
+        print(applicant_list)
         return render_template("employer_home.html", applicant_list=applicant_list)
     else: 
         # code goes here

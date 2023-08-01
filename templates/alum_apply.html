@@ -9,7 +9,7 @@
     <form action="/alum_apply" method="post">
 
         {%for company in companies%}
-        <input type="checkbox" name="box" value={{company}} placeholder={{company['email']}}><p>{{companies[company]['Email']}}</p>
+        <input type="checkbox" name="box" value={{company}} placeholder={{company['email']}}><p>{{companies[company]['name']}}</p>
         {%endfor%}
         <input type ='submit'>
 
