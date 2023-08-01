@@ -165,8 +165,7 @@ def employer_login():
             
             login_session['user'] = auth.sign_in_with_email_and_password(email,password)
             UID = login_session['user']['localId']
-            if db.child("Companies").child(UID).get().val() == None:
-                db.child("Companies").child(UID).child("Email").set(email)
+            
             return redirect(url_for("employer_home"))
 
 
