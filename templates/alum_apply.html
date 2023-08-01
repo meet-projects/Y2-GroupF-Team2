@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <form action="/alum_apply" method="post">
 
-        {%for company in companies%}
-        <input type="checkbox" name="box" value={{company}} placeholder={{company['email']}}><p>{{companies[company]['name']}}</p>
-        {%endfor%}
-        <input type ='submit'>
 
+<div >
+        {%for company in companies%}
+        <input class="div1" type="checkbox" name="box" value={{company}} ><p class="div1">{{companies[company]['name']}}</p>
+        {%endfor%}
+        <input class="div1" class="div1" type ='submit'>
+</div>
 
     </form>
 </body>
