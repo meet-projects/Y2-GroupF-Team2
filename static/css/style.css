@@ -135,6 +135,7 @@ height: 0%;
   height: 50px;
   width: 100px;
   background-color: #ff00ff;
+
 }
 
 #yes {
@@ -229,14 +230,13 @@ height: 0%;
   width: 100%;
   margin-left:47%;
 }
-input[type="file"] {
+/* input[type="file"] {
   position: absolute;
-  z-index: -1;
   top: 10px;
   left: 8px;
   font-size: 17px;
   color: #b8b8b8;
-}
+} */
 .button-wrap {
   position: relative;
 }
