@@ -41,3 +41,11 @@ height: 80px;
     border: none;
     border-radius: 50px;
 }
+
+#sign:hover {
+  background-color: #ff00ff;
+}
+
+#sign1:hover {
+  background-color: #ff00ff;
+}

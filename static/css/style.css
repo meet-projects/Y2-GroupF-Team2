@@ -62,12 +62,14 @@ input[type=file]::file-selector-button {
 
 }
 
+
 #login1 {
   border-radius: 50px;
   outline: none;
   height: 60px;
   width: 300px;
 }
+
 
 #submit {
   border-radius: 50px;
