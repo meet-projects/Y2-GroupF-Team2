@@ -24,10 +24,11 @@
 <div >
         {%for company in companies%}
         <br>
-        <input class="div1" type="checkbox" name="box" value={{company}}>
+        <p class="div1">{{companies[company]['name']}}</p>
+
         <br>
         <div>
-            <p class="div1">{{companies[company]['name']}}</p>
+            <input class="div1" type="checkbox" name="box" value={{company}}>
         </div>
         <br>
         {%endfor%}
