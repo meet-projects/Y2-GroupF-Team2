@@ -23,14 +23,21 @@
     <form action="/alum_apply" method="post">
 <div >
         {%for company in companies%}
-        <br>
-        <p class="div1">{{companies[company]['name']}}</p>
 
-        <br>
-        <div>
-            <input class="div1" type="checkbox" name="box" value={{company}}>
-        </div>
-        <br>
+            {% if loop.index < 2 %}
+
+                <div style="float:left;">
+                <p class="div1">{{companies[company]['name']}}</p>
+
+
+
+                    <input class="div1" type="checkbox" name="box" value={{company}}>
+
+                </div>
+
+            {% endif %}
+
+
         {%endfor%}
         <br>
         <input class="div1" class="div1" type ='submit'>
