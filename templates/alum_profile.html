@@ -20,19 +20,13 @@
 <center>
 
     <p id = "name" >{{user["name"]}}</p>
-    <p id = "degree" >degree:- {{user["degree"]}}</p>
+    <p id = "degree" >degree: {{user["degree"]}}</p>
 
 
     <form action="/alum_profile" method="post" enctype="multipart/form-data">
     <!-- type your CV here<input type="text" name="CV-TEXT" height="2000" width="100px"> -->
-     <!-- <p id = "words" >Upload A File Here:- </p> 
-     <input type="file" name="CV" id = "cv" > -->
-     <div class="container">
-      <div class="button-wrap">
-        <label class="button" for="upload">Upload File</label>
-        <input id="upload" type="file">
-      </div>
-    </div>
+     <p id = "words" >Upload A File Here:- </p> 
+     <input type="file" name="CV" id = "cv" >
      <br>
     <input type="submit" id = "submit2" >
 </form>
@@ -41,7 +35,7 @@
 <ul>
 {%if applications != None%}    
 {%for appli in applications%}
-<li>{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
+<li id = "yes2">{{appli}} {{applications[appli]["Role"]}} : {{applications[appli]["Status"]}}</li>
 {%endfor%}
 {%endif%}
 </ul>
