@@ -165,6 +165,31 @@ height: 80px;
 .sign{ height:150px ; width:200px; background-color: #ff00ff; color:#ff3399; 
 }
 
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
+/* Optional: Hover effect */
+.custom-button:hover {
+  background-color: #2980b9;
+}
+
+/* List styles (optional, adjust as needed) */
+.button-list {
+  list-style: none;
+  padding: 0;
+}
+
+.button-list li {
+  margin-bottom: 10px;
+}
 
 
